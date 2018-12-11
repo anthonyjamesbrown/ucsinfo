@@ -1,0 +1,75 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="UCS.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 98%;
+        }
+        .style2
+        {
+            width: 115px;
+        }
+        .style3
+        {
+            width: 1079px;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <table class="style1">
+                    <tr>
+                        <td class="style3">
+                            <h1>UCS Data Viewer</h1></td>
+                        <td align="right" class="style2" valign="middle">
+                            <asp:Image ID="Image1" runat="server" Height="53px" 
+                                ImageUrl="~/Asurion_Logo_White.jpg" style="margin-left: 435px" 
+                                Width="221px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem Text="UCS" Value="UCS">
+                            <asp:MenuItem NavigateUrl="UCSInstances.aspx" Text="UCS Instances" 
+                                Value="UCS Instances"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="BladeInventory.aspx" Text="Blade Inventory" 
+                                Value="Blade Inventory"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="BladeInventoryHist.aspx" 
+                                Text="Blade Inventory History" Value="Blade Inventory History">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="Slots.aspx" Text="Blade Slot Status" 
+                                Value="Blade Slot Status"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/UCSCapacity.aspx" Text="UCS Slot Capacity" 
+                                Value="UCS Slot Capacity"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+        Copyright 2014 - AB Industries</div>
+    </form>
+</body>
+</html>
